@@ -32,7 +32,7 @@ He plans on using these insights to help him decide whether he should expand the
 
 ---
 # Case Study
-- [Part A]()
+- [Part A](https://github.com/imanjokko/Dannys-Diner/blob/main/Part%20A.md)
 - [Bonus Questions]()
 
 ---
