@@ -244,18 +244,23 @@ ON sales.customer_id = members.customer_id
 INNER JOIN menu
 ON menu.product_id = sales.product_id
 WHERE sales.order_date < '02-01-2021'
-AND sales.order_date BETWEEN members.join_date AND (members.join_date + INTERVAL '1 week') 
 ORDER BY sales.customer_id
 )
-SELECT customer_id, SUM(price * 2) * 10 AS total_points
+SELECT customer_id,
+SUM(CASE 
+     WHEN order_date BETWEEN join_date AND (join_date + INTERVAL '1 week') THEN price * 20 -- 2x points for all items in the first week
+     WHEN product_name = 'sushi' THEN price * 20 -- 2x points for sushi outside the first week
+     ELSE price * 10 -- Default 10 points per USD for other purchases outside the first week
+        END
+    ) AS total_points
 FROM CTE
 GROUP BY customer_id;
 ```
 **Output**
 customer_id|total_points
 :------:|:-------:
-A|1020
-B|440
+A|1370
+B|940
 
 
 
