@@ -31,6 +31,7 @@ C|2021-01-07|ramen|12|N
 
 ---
 2. Rank All The Things
+
 Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
 ![](https://github.com/imanjokko/Dannys-Diner/blob/main/images/bonus2.png)
 ```sql
